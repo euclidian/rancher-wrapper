@@ -4,13 +4,13 @@ MAINTAINER Luca Mattivi <luca@smartdomotik.com>
 
 ENV PROJECT_PATH /var/www
 ENV DEBIAN_FRONTEND noninteractive
-ENV HTPASSWD='foo:$apr1$odHl5EJN$KbxMfo86Qdve2FH4owePn.'
+ENV HTPASSWD='penguasa:$apr1$odHl5EJN$KbxMfo86Qdve2FH4owePn.'
 
 RUN apt-get update && apt-get upgrade -y --force-yes
 
 # Use PHP5.6 instead of PHP5.5 (need to manually add repo key)
 RUN apt-get install -y --force-yes software-properties-common python-software-properties
-RUN add-apt-repository ppa:ondrej/php5-5.6
+RUN add-apt-repository ppa:ondrej/php
 RUN apt-key adv --keyserver keyserver.ubuntu.com --recv-keys 4F4EA0AAE5267A6C
 
 # Utilities, Apache, PHP, and supplementary programs
