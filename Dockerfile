@@ -77,6 +77,7 @@ RUN curl -sS https://getcomposer.org/installer | php -- --install-dir=/usr/local
 RUN composer install --no-interaction --optimize-autoloader
 
 
+
 # Folder permissions
 RUN chown -R www-data:www-data $PROJECT_PATH
 RUN chown -R www-data:root logs/
