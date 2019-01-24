@@ -87,6 +87,10 @@ class ServiceController extends Controller
 
             $response = Rancher::service()->upgrade($id, $serviceUpgrade);
 
+            sleep(25);
+
+            $response = Rancher::service()->finishUpgrade($id);            
+
             $statusCode = 200;
            // $response = $serviceUpgrade;
         }
