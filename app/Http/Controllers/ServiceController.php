@@ -83,13 +83,24 @@ class ServiceController extends Controller
                 ]
             ];
 
+            try
+            {
+                $response = Rancher::service()->finishUpgrade($id);  
+            }
+            catch(Exception $e)
+            {
+                
+            }
+            
+
+            sleep(25);
+
             $serviceUpgrade['inServiceStrategy']['launchConfig']->labels->{"io.rancher.container.pull_image"} = "always";
 
             $response = Rancher::service()->upgrade($id, $serviceUpgrade);
 
-            sleep(25);
-
-            $response = Rancher::service()->finishUpgrade($id);            
+            
+          
 
             $statusCode = 200;
            // $response = $serviceUpgrade;
