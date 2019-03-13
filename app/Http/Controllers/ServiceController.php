@@ -72,9 +72,7 @@ class ServiceController extends Controller
     {
         //
         try {
-            $service = Rancher::service()->get($id);
-
-            dd("test");
+            $service = Rancher::service()->get($id);            
 
             $serviceUpgrade = [
                 'inServiceStrategy' => [
