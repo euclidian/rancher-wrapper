@@ -74,6 +74,8 @@ class ServiceController extends Controller
         try {
             $service = Rancher::service()->get($id);
 
+            dd("test");
+
             $serviceUpgrade = [
                 'inServiceStrategy' => [
                     'batchSize' => 1,
@@ -87,13 +89,13 @@ class ServiceController extends Controller
             {
                 $response = Rancher::service()->finishUpgrade($id);  
             }
-            catch(Exception $e)
+            catch(\Exception $e)
             {
                 
             }
             
 
-            sleep(25);
+            sleep(10);
 
             $serviceUpgrade['inServiceStrategy']['launchConfig']->labels->{"io.rancher.container.pull_image"} = "always";
 
@@ -106,6 +108,7 @@ class ServiceController extends Controller
            // $response = $serviceUpgrade;
         }
         catch(\Exception $e){
+            dd($e);
             $response = [
                 "error" => "Cannot execute upgrade"
             ];
