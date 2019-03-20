@@ -103,10 +103,9 @@ class ServiceController extends Controller
           
 
             $statusCode = 200;
-           // $response = $serviceUpgrade;
+            $response = "OK";
         }
-        catch(\Exception $e){
-            dd($e);
+        catch(\Exception $e){            
             $response = [
                 "error" => "Cannot execute upgrade"
             ];
